@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/atextor
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://atextor.de
+  * I am atextor (https://keybase.io/atextor) on keybase.
+  * I have a public key with fingerprint E3A7 90BB 63B7 91AB E551  8011 79A2 5FA5 AAC9 D7A8
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "e3a790bb63b791abe551801179a25fa5aac9d7a8",
+            "host": "keybase.io",
+            "key_id": "79a25fa5aac9d7a8",
+            "kid": "0101f7dafe99b316c40901f9382d2bee20d2606e86961372bd01a23e7d518509fad70a",
+            "uid": "b9658ab53b168cd08f4ef79a4d0a3600",
+            "username": "atextor"
+        },
+        "service": {
+            "hostname": "atextor.de",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1422258260,
+    "expire_in": 157680000,
+    "prev": "db06373a9f4f0a9b5dfa626c08600245bee0a1ef70ff61e18b1e28b753a7bfe3",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtUntQVFUc3l1AVFIaHdCNhselTIOY+9j7WoERx2ycYMwEJB+s5+49l70ie5fd
+ZWHloUVGmMjGMDI06tBCYSAmAZnZoAzsCBJG5EgDksIEDvYYqEAUBzrL1B/NdP45
+c77zfd/v9/3Oca3yUWnUTrfhk4aewfPq3o54QZXsmQL5mKCITkyfj2XCpU2SzRnQ
+arHKZjumxyAFWB4XBIYSWJ4AAqRpgsMJguUBSUuABsDIiyzgsGjMpNi8CmQjABuM
+kRWEoYNBFhH6P/zMpQucwAmJFYEEeV6gCMaow3mE8BRHiqQAIYmLJIMzkGN4hqBY
+UhBxApAUZEXUCI3zEhBZHCC7nCU7gWdoDgg0JRAMZxRxTtJBCRXXiTigGBz3Em3Q
+agZZELGBHebZFStWGI0h0CEboXcC3iD/JcSIEAktVsWuGJXDCDfZ7Ra9V2Z3Wry8
+XCgY/nEwCLJZRDNEAge02mTFjOkJxDTaZa8loSNJkuZQpmgM5llkKzTIXgbNMhyO
+lrcMdCBLUcAZiqUAL+kkHPACLUqAIRkjzqEYpI5Gs8EBgcLhksQQkOAEApKcwNLo
+xQQJUpg3U7ZZwfQ61CbIQJY2OcMM7DlWiBWuLNU876tSa1TL/DTeb6BaueLZfz/H
+G0cCnz5T49I85whfN9h9v2d9bat7s1t/2hxX0uHbE3H/p1s3yzUh4564tJmUs6/e
+So2bHbnyRNNflJm3zLRbNT1c/mX9vfaHO6Z3Hmu6fLs82nxxuKripvarsbeP67r3
+N8++kN3vGTkaEZX6aWHdgjqZy80Lyi3b2tZf97v/A8Ou+o4t7okRv3V8izGRb5OL
+72a9+5czaSJoOQ03zpVQBxJtxRXalpd/Hl87Ubch77vCg32/BME7q/1XnaquOVR0
+uDTdGXwyqXrc5HNvV4Tr5NbboeXy2cX5NPL6n4kZAdvGznwUWQJ+fcWt/35f/E5t
+7ze181E/Ni6Mbm689Hlv5cADfs32nJbHGxe6HDkBwhFbbhH7ON/TFxnSFF75fsCa
+Q02e0bLOhnPtc56C81+/NXyh4YdR36Hjs2PvPJp3FlTtKO0K3b33hPbJNSp2uSWh
+eNOd1bOnM14fopSQkl6/wbk/Jjsva6f2BrUupg9dUUe2f4Z1tyaJN35zYdqC2ED9
+SIHpYtqUpsoRXZB6aabyUUpM1pbJhA/CAmeI/dlhoQcm92VdOObTtokce69wW81i
+2BBJaGuv3vi4z7c/HivhIk+pe/ODY10bXry6wpT8cODuiZiBPefCy/aUp9QHNCvB
+roSgqO35lcr6tf7pzm+zlr3W3Dj1JhV99HrLwZfqqr8YOzN9rYKp/vBpQJd7orvz
+bw==
+=5FTw
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/atextor
+
+==================================================================
+

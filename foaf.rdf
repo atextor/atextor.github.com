@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<rdf:RDF
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:wot="http://xmlns.com/wot/0.1/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+	<foaf:Person rdf:about="http://atextor.de/">
+		<foaf:name>Andreas Textor</foaf:name>
+		<foaf:firstName>Andreas</foaf:firstName>
+		<foaf:familyName>Textor</foaf:familyName>
+		<foaf:nick>atextor</foaf:nick>
+		<foaf:logo rdf:resource="http://atextor.de/avatar.png"/>
+		<foaf:gender>male</foaf:gender>
+		<foaf:mbox_sha1sum>e8be7266c7e8bc49f5179542d9033b15a1752550</foaf:mbox_sha1sum>
+		<foaf:homepage rdf:resource="http://atextor.de"/>
+		<foaf:workplaceHomagepage rdf:resource="https://wwwvs.cs.hs-rm.de"/>
+		<foaf:workInfoHomepage rdf:resource="https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html"/>
+		<foaf:schoolHomepage rdf:resource="https://www.hs-rm.de/"/>
+		<foaf:myersBriggs>INTP</foaf:myersBriggs>
+
+		<wot:hasKey>
+			<wot:PubKey>
+				<wot:hex_id>AAC9D7A8</wot:hex_id>
+				<wot:fingerprint>E3A790BB63B791ABE551801179A25FA5AAC9D7A8</wot:fingerprint>
+				<wot:pubkeyAddress rdf:resource="http://atextor.de/atextor.asc"/>
+			</wot:PubKey>
+		</wot:hasKey>
+
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://www.twitter.com"/>
+				<foaf:accountName>atextor</foaf:accountName>
+				<foaf:accountProfilePage rdf:resource="https://www.twitter.com/atextor"/>
+				<dc:title>Twitter</dc:title>
+			</foaf:OnlineAccount>
+		</foaf:account>
+
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://www.github.com"/>
+				<foaf:accountName>atextor</foaf:accountName>
+				<foaf:accountProfilePage rdf:resource="https://www.github.com/atextor"/>
+				<dc:title>Github</dc:title>
+			</foaf:OnlineAccount>
+		</foaf:account>
+
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://www.keybase.io"/>
+				<foaf:accountName>atextor</foaf:accountName>
+				<foaf:accountProfilePage rdf:resource="https://www.keybase.io/atextor"/>
+				<dc:title>Github</dc:title>
+			</foaf:OnlineAccount>
+		</foaf:account>
+
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="http://twister.net.co"/>
+				<foaf:accountName>atextor</foaf:accountName>
+				<dc:title>Twister</dc:title>
+			</foaf:OnlineAccount>
+		</foaf:account>
+
+		<foaf:interest dc:title="Scala" rdf:resource="http://dbpedia.org/resource/Scala_(programming_language)"/>
+		<foaf:interest dc:title="Ontology Engineering" rdf:resource="http://dbpedia.org/resource/Ontology_engineering"/>
+		<foaf:interest dc:title="IT Management" rdf:resource="http://dbpedia.org/resource/Information_technology_management"/>
+		<foaf:interest dc:title="Command Line Interfaces" rdf:resource="http://dbpedia.org/resource/Command-line_interface"/>
+		<foaf:interest dc:title="Linux" rdf:resource="http://dbpedia.org/resource/Linux"/>
+
+		<foaf:publications rdf:resource="https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html"/>
+	</foaf:Person>
+</rdf:RDF>

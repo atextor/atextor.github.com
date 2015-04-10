@@ -4,6 +4,7 @@
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
 	xmlns:wot="http://xmlns.com/wot/0.1/"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
@@ -19,7 +20,20 @@
 		<foaf:workplaceHomagepage rdf:resource="https://wwwvs.cs.hs-rm.de"/>
 		<foaf:workInfoHomepage rdf:resource="https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html"/>
 		<foaf:schoolHomepage rdf:resource="https://www.hs-rm.de/"/>
+		<foaf:weblog rdf:resource="https://atextor.blogspot.com/"/>
 		<foaf:myersBriggs>INTP</foaf:myersBriggs>
+		<rdfs:seeAlso rdf:resource="http://www.hs-rm.de/dcsm/ueber-uns/personen-im-fachbereich/personalseiten-fb-dcsm/msc-andreas-textor/index.html"/>
+		<rdfs:seeAlso rdf:resource="http://www.cs.hs-rm.de/~textor/"/>
+
+		<foaf:based_near>
+			<geo:Point>
+				<foaf:name>Wiesbaden, Germany</foaf:name>
+				<foaf:name xml:lang="de">Wiesbaden, Deutschland</foaf:name>
+				<geo:lat>50.08</geo:lat>
+				<geo:long>8.24</geo:long>
+				<dc:title>Wiesbaden</dc:title>
+			</geo:Point>
+		</foaf:based_near>
 
 		<wot:hasKey>
 			<wot:PubKey>

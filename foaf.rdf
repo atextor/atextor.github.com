@@ -52,7 +52,7 @@
 				<foaf:accountServiceHomepage rdf:resource="https://www.keybase.io"/>
 				<foaf:accountName>atextor</foaf:accountName>
 				<foaf:accountProfilePage rdf:resource="https://www.keybase.io/atextor"/>
-				<dc:title>Github</dc:title>
+				<dc:title>Keybase</dc:title>
 			</foaf:OnlineAccount>
 		</foaf:account>
 

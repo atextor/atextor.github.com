@@ -26,6 +26,7 @@
 				<wot:hex_id>AAC9D7A8</wot:hex_id>
 				<wot:fingerprint>E3A790BB63B791ABE551801179A25FA5AAC9D7A8</wot:fingerprint>
 				<wot:pubkeyAddress rdf:resource="http://atextor.de/atextor.asc"/>
+				<dc:title>GPG Public Key</dc:title>
 			</wot:PubKey>
 		</wot:hasKey>
 

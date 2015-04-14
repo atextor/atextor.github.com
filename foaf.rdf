@@ -85,6 +85,15 @@
 			</foaf:OnlineAccount>
 		</foaf:account>
 
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://quitter.no"/>
+				<foaf:accountName>@atextor@quitter.no</foaf:accountName>
+				<foaf:accountProfilePage rdf:resource="https://quitter.no/atextor"/>
+				<dc:title>GNU Social</dc:title>
+			</foaf:OnlineAccount>
+		</foaf:account>
+
 		<foaf:interest dc:title="Scala" rdf:resource="http://dbpedia.org/resource/Scala_(programming_language)"/>
 		<foaf:interest dc:title="Ontology Engineering" rdf:resource="http://dbpedia.org/resource/Ontology_engineering"/>
 		<foaf:interest dc:title="IT Management" rdf:resource="http://dbpedia.org/resource/Information_technology_management"/>

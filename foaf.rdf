@@ -8,7 +8,7 @@
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
-	<foaf:PersonalProfileDocument rdf:about="">
+	<foaf:PersonalProfileDocument rdf:about="http://atextor.de/foaf.rdf">
 		<foaf:maker rdf:nodeID="atextor"/>
 		<foaf:primaryTopic rdf:nodeID="atextor"/>
 		<dc:title>Profile of Andreas Textor</dc:title>

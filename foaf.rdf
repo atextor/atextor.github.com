@@ -14,7 +14,7 @@
 		<dc:title>Profile of Andreas Textor</dc:title>
 	</foaf:PersonalProfileDocument>
 
-	<foaf:Person rdf:about="http://atextor.de/" rdf:nodeID="atextor">
+	<foaf:Person rdf:nodeID="atextor">
 		<foaf:name>Andreas Textor</foaf:name>
 		<foaf:firstName>Andreas</foaf:firstName>
 		<foaf:familyName>Textor</foaf:familyName>

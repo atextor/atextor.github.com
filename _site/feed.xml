@@ -6,9 +6,119 @@
 </description>
     <link>http://atextor.de/</link>
     <atom:link href="http://atextor.de/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Jun 2016 11:54:50 +0200</pubDate>
-    <lastBuildDate>Fri, 17 Jun 2016 11:54:50 +0200</lastBuildDate>
+    <pubDate>Fri, 17 Jun 2016 14:46:47 +0200</pubDate>
+    <lastBuildDate>Fri, 17 Jun 2016 14:46:47 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>How to properly set up node-red with nginx</title>
+        <description>&lt;!-- vim: set fo=aw2tq, tw=120, spelllang=en --&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://nodered.org/&quot;&gt;node-red&lt;/a&gt; is a great visual tool for wiring workflows. 
+There are &lt;a href=&quot;http://flows.nodered.org/&quot;&gt;tons&lt;/a&gt; of &lt;em&gt;nodes&lt;/em&gt; that you can install to 
+make it do all kind of things.&lt;/p&gt;
+
+&lt;p&gt;Installation for testing purposes is also easy:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;node-red is based on node.js. Therefore &lt;a href=&quot;https://nodejs.org/en/download/package-manager/&quot;&gt;install 
+node.js&lt;/a&gt; if you
+haven’t already. Currently, you should use version 4.x for node-red to work 
+properly. Installing node.js also installs its &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; package manager.&lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo npm install -g node-red&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Start node-red it by running &lt;code class=&quot;highlighter-rouge&quot;&gt;node-red&lt;/code&gt;. Now you can access the interface at 
+&lt;a href=&quot;http://localhost:1880/&quot;&gt;http://localhost:1880/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Done. Right? Well, read on if you want to properly set it up beyond testing 
+purposes. First of all, you may want to &lt;a href=&quot;http://nodered.org/docs/security&quot;&gt;set up an admin 
+password&lt;/a&gt;, as there is no security whatsoever 
+by default.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-https&quot;&gt;Setting up HTTPS&lt;/h2&gt;
+
+&lt;p&gt;When you start node-red for the first time, it creates a default configuration 
+file for you, &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.node-red/settings.js&lt;/code&gt;. In there, you will find settings to 
+enable HTTPS by itself - ignore those. By using the built-in mechanism for 
+HTTPS, you have to choose between running node-red as root (so that it can read 
+your certificate and private key) or making the private key readable for 
+non-root users. We want to do neither.&lt;/p&gt;
+
+&lt;p&gt;We will solve this problem by setting up &lt;a href=&quot;https://www.nginx.com/&quot;&gt;nginx&lt;/a&gt; as a 
+proxy that will handle HTTPS for us. It will forward all requests to node-red, 
+which will run on a non-privileged port using HTTP, that is only locally 
+reachable.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Get a SSL/TLS certificate. If you don’t have one, you can get one using 
+&lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt;. For the sake of the example, we’ll 
+assume you have a Let’s encrypt certificate from here on.&lt;/li&gt;
+  &lt;li&gt;Configure node-red to only accept requests from localhost. Edit 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.node-red/settings.js&lt;/code&gt; and enable the option &lt;code class=&quot;highlighter-rouge&quot;&gt;uiHost: &quot;127.0.0.1&quot;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Install nginx if you haven’t already, and add a server block, for example in 
+the default site file &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nginx/sites-available/default&lt;/code&gt;. Replace 
+&lt;em&gt;yourhostname.com&lt;/em&gt; with your host name.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nginx&quot; data-lang=&quot;nginx&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;443&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;ssl&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;ssl_certificate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/etc/letsencrypt/live/yourhostname.com/fullchain.pem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;ssl_certificate_key&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/etc/letsencrypt/live/yourhostname.com/privkey.pem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;span class=&quot;kn&quot;&gt;ssl_verify_depth&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;ssl_protocols&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;TLSv1.1&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;TLSv1.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;ssl_ciphers&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kn&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://localhost:1880&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Real-IP&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kn&quot;&gt;proxy_http_version&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Upgrade&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$http_upgrade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;upgrade&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;(Re-)start node-red and nginx (e.g., &lt;code class=&quot;highlighter-rouge&quot;&gt;service nginx start&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Let’s quickly explain what that all means. In lines 2-3 we instruct nginx to 
+open the HTTPS port. Lines 4-5 configure the certificate. Lines 6-8 instruct 
+nginx to only use the modern protocols and cypher suites, see &lt;a href=&quot;https://wiki.mozilla.org/Security/Server_Side_TLS&quot;&gt;Mozilla’s 
+Security/Server Side TLS&lt;/a&gt; 
+page for more information. In short, we value security higher than 
+compatibility with older clients. Lines 10-17 set up the proxy that will 
+forward the traffic to node-red. Lines 14-16 enable WebSocket upgrade requests. 
+Without theses three lines, node-red will work for a few seconds an then 
+display an error message like &lt;em&gt;Lost connection to server&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note that we have not configured forwarding or rewriting from HTTP to HTTPS, 
+i.e., you now need to explicitly open &lt;code class=&quot;highlighter-rouge&quot;&gt;https://yourhostname.com&lt;/code&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 17 Jun 2016 13:00:00 +0200</pubDate>
+        <link>http://atextor.de/2016/06/17/how-to-properly-set-up-node-red-with-nginx.html</link>
+        <guid isPermaLink="true">http://atextor.de/2016/06/17/how-to-properly-set-up-node-red-with-nginx.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>The Quest for the Next Generation Power User Interface</title>

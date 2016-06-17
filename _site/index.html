@@ -1,11 +1,62 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
 
-<div class="home">
+	<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Andreas Textor</title>
+  <meta name="description" content="Andreas Textor's blog
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://atextor.de/">
+  <link rel="alternate" type="application/rss+xml" title="Andreas Textor" href="http://atextor.de/feed.xml">
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'> 
+  <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://atextor.de/foaf.rdf"/>
+</head>
+
+
+	<body>
+
+		<header class="site-header">
+
+	<div class="wrapper">
+
+		<a class="site-title" href="/">Andreas Textor</a>
+
+		<nav class="site-nav">
+			<div class="trigger">
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+			</div>
+		</nav>
+
+	</div>
+
+</header>
+
+
+		<div class="page-content">
+			<div class="wrapper">
+				<div class="home">
 <div class="headerblock">
 
-<img src="{{ "/assets/avatar.png" | prepend: site.baseurl }}"/>
+<img src="/assets/avatar.png"/>
 <br/>
 
 <pre>
@@ -16,7 +67,7 @@ layout: default
 <span class="nohi">github:           <a href="https://github.com/atextor/">github.com/<span class="hi">atextor</span></a></span>                             
 <span class="nohi">keybase:          <a href="https://keybase.io/atextor/">keybase.io/<span class="hi">atextor</span></a></span>                             
 <span class="nohi"><a href="http://twister.net.co/"><span class="obvious-link">twister</span></a>:                    @<span class="hi">atextor</span></span>                             
-<span class="nohi">foaf:                        <a href="{{ "/foaf.rdf" | prepend: site.baseurl }}"><span class="hi">atextor</span>.rdf</a> <a href="http://graphite.ecs.soton.ac.uk/browser/?uri={{ "/foaf.rdf" | prepend: site.baseurl | prepend: site.url }}"><img src="{{ "/assets/foaf.png" | prepend: site.baseurl }}" alt="FOAF logo"/></a>  </span>                  
+<span class="nohi">foaf:                        <a href="/foaf.rdf"><span class="hi">atextor</span>.rdf</a> <a href="http://graphite.ecs.soton.ac.uk/browser/?uri=http://atextor.de/foaf.rdf"><img src="/assets/foaf.png" alt="FOAF logo"/></a>  </span>                  
  
 <span class="nohi">gpg public key:              <a href="atextor.asc"><span class="hi">atextor</span>.asc</a></span>                         
 <span class="nohi">gpg key id:                  0xAAC9E3A7                          
@@ -28,15 +79,35 @@ fingerprint: <span class="pad">E3A7</span><span class="pad">90BB</span><span cla
 
 <hr/><br/>
 
-	<h1 class="page-heading">Posts <span class="rss-subscribe">(subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>)</span></h1>
+	<h1 class="page-heading">Posts <span class="rss-subscribe">(subscribe <a href="/feed.xml">via RSS</a>)</span></h1>
 
   <table>
-    {% for post in site.posts %}
+    
 		<tr>
-			<td style="padding-right: 10px;"><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span></td>
-			<td><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td> 
+			<td style="padding-right: 10px;"><span class="post-meta">Apr 20, 2012</span></td>
+			<td><a class="post-link" href="/2012/04/20/the-quest-for-the-next-generation-power-user-interface.html">The Quest for the Next Generation Power User Interface</a></td> 
 		</tr>
-	{% endfor %}
+	
   </table>
 
 </div>
+
+			</div>
+		</div>
+
+	<footer class="site-footer">
+
+	<div class="wrapper">
+
+		<div class="footer"> 
+			<a href="about.md">About</a> 
+		</div>
+
+	</div>
+
+</footer>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Quest for the Next Generation Power User Interface</title>
+  <meta name="description" content="[This post was updated on 2015-03-13 to change the URL to the ‘niveau’ tool, which was moved from Google Code to GitHub.]">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://atextor.de/2012/04/20/the-quest-for-the-next-generation-power-user-interface.html">
+  <link rel="alternate" type="application/rss+xml" title="Andreas Textor" href="http://atextor.de/feed.xml">
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'> 
+  <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://atextor.de/foaf.rdf"/>
+</head>
+
+
+	<body>
+
+		<header class="site-header">
+
+	<div class="wrapper">
+
+		<a class="site-title" href="/">Andreas Textor</a>
+
+		<nav class="site-nav">
+			<div class="trigger">
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+			</div>
+		</nav>
+
+	</div>
+
+</header>
+
+
+		<div class="page-content">
+			<div class="wrapper">
+				<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">The Quest for the Next Generation Power User Interface</h1>
+    <p class="post-meta"><time datetime="2012-04-20T16:55:23+02:00" itemprop="datePublished">Apr 20, 2012</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <!-- vim: set fo=aw2tq, tw=120, spelllang=en -->
+<p>[This post was updated on 2015-03-13 to change the URL to the ‘niveau’ tool, which was moved from Google Code to GitHub.]</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>I love the command line. They say, if you do something for a decade or longer, you become really good at it. In 2000, I 
+started using Linux and the command line extensively. Other powerful tools exist beside the command line interface 
+(CLI), e.g., certain file managers. In everyday use for me, though, the CLI is well-proven and the versatility given by 
+the modularity of the commands, pipelines, integrated scripting (i.e., Bash on-liners) and the awesomeness of tools such 
+as find, screen, ssh and numerous others makes it superior to alternative interfaces. I can’t get that with a regular 
+file manager. If you are a developer or power user and regularly use a CLI, you probably know what I mean.</p>
+
+<p>It is the flexibility of the commands and the powerful recombination possibilities of simple commands that makes it 
+great for me, not so much the dull text output. In fact, in a “Next Generation Power User Interface” (NGPUI) I would 
+like to have a much richer display capability. Even something very simple such as sorting holiday photos is very easy 
+using a graphical file manager, yet cumbersome on the CLI, even if you can pattern match file names etc., just because 
+you don’t have thumbnails. Of course the idea to graphically augment the command line interface or replace it by a 
+better alternative altogether is nothing new. Yet, for some reason, I have found no solution that satisfies my 
+requirements. In this post, I want to clarify my requirements for a “better” command line interface, review existing 
+approaches to one, and explore paths that could lead to what I think is the CLI/CLI-successor that every developer and 
+power users wants (although they don’t know it yet ;-)).</p>
+
+<h2 id="the-requirements">The requirements</h2>
+
+<p>What do I envision for the NGPUI? It should be a logical successor to a terminal emulator, where you type your commands. 
+It should not be limited to text output though. Regular command line tools should run in it as well as new tools that 
+use the graphical capabilities, such as ls with thumbnails.</p>
+
+<h3 id="keyboard-superiority">1) Keyboard superiority</h3>
+<p>It should be controlled exclusively by keyboard. It’s kind of obvious when you think about the typical CLI, but I want 
+to state it explicitly. If you design an interface specifically with keyboard input in mind, you will necessarily think 
+about how you make it accessible in a fast way. Watch a ten years vim<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> user edit a text file and you’ll understand.</p>
+
+<h3 id="compatibility-non-intrusiveness">2) Compatibility, Non-Intrusiveness</h3>
+<p>It should be compatible with what we already have, i.e., what applications can do in a modern terminal. This is a 
+crucial point, because it’s not only a text area where you append line after line, but there are also ANSI escape codes 
+to move the cursor or change colors, there are things like ncurses and screen, text wrapping, wide characters, different 
+fonts / proper Unicode support, visual bells, etc.. Whatever the NGPUI is, all of the above must work. Nobody would 
+seriously use it if the existing applications don’t work in it, or you would need to patch your favorite text editor 
+just to work with it - you can’t rewrite everything.</p>
+
+<h3 id="rich-display-capability">3) Rich Display Capability</h3>
+<p>Whatever that means, it should be more powerful than… text. First of all, it should be possible to display images. If 
+this also means animations, embedded videos or websites etc. - I don’t know. For now, I would be happy to see thumbnails 
+for my photos. It might be necessary that the display is asynchronous - think typing ls and you get a table of files and 
+you can already type the next command while the thumbnails in the table are still loading and gradually appear. Also, 
+typing wildcards or regexes and dynamically seeing a preview of what files are affected before you even execute the 
+command would be awesome.</p>
+
+<h2 id="approaching-the-problem">Approaching the problem</h2>
+<p>There are basically three ways to approach the problem:
+1. Take something that already displays graphics (such as a browser/html renderer) and add functionality to it to run 
+normal CLI applications
+2. Take something that already runs normal CLI applications (i.e., a terminal emulator such as urxvt, gnome-terminal, 
+etc.) and add functionality to display graphics
+3. Display graphics separately from the actual terminal.
+All three approaches might work, and all have different advantages and disadvantages (flexibility, amount of work to 
+implement, practicality, portability).</p>
+
+<h3 id="existing-software">Existing software</h3>
+<p>For (1), you should check out Steven Wittens’ <a href="http://acko.net/blog/on-termkit/">TermKit</a>. It uses a WebKit renderer as 
+a graphical display and several JavaScript libraries to create a hybrid command line/graphical user interface. It also 
+has a more advanced data model for pipes. Altogether, it looks very promising. Unfortunately it is not a VT100 emulator, 
+which means things like vim and screen will never run in it. If you’d like to try it in Linux, 
+<a href="http://blog.easytech.com.ar/2011/05/21/playing-with-termkit-with-chrome/">here</a> is a Blog post that explains how. I 
+don’t know if there are other similar projects, but I wouldn’t be surprised.
+When I searched for normal terminals that support graphics (2), I stumbled over this extract from a manpage in the <a href="https://wiki.archlinux.org/index.php/Rxvt-unicode">Arch 
+Linux Wiki</a> on rxvt-unicode (urxvt):</p>
+
+<blockquote>
+  <p>COLORS AND GRAPHICS - If graphics support was enabled at compile-time, rxvt can be queried with ANSI escape sequences 
+and can address individual pixels instead of text characters. Note the graphics support is still considered beta code.</p>
+</blockquote>
+
+<p>I searched the urxvt website, man page, help output and google to find out how to activate this mystical graphics mode. 
+It turns out that, even though the quote was on the urxvt wiki page, this functionality is in fact only present in rxvt, 
+and was removed in urxvt. I wouldn’t want to use rxvt for its lack of unicode support (and other nice features in urxvt, 
+such as the perl extensions), but this looks promising.</p>
+
+<p><a href="/assets/rxvt-graphics1.png"><img src="/assets/rxvt-graphics1.png" alt="Graphics in rxvt 1" /></a>
+<a href="/assets/rxvt-graphics2.png"><img src="/assets/rxvt-graphics2.png" alt="Graphics in rxvt 2" /></a></p>
+
+<p>It seems that no other terminal emulator has a comparable feature.</p>
+
+<p>Regarding (3), the most popular possibility is embedding a terminal into a file manager. I have tried <a href="http://www.addictivetips.com/ubuntu-linux-tips/nautilus-terminal-embed-linux-terminal-to-nautilus-file-browser/">Nautilus 
+Terminal</a>, 
+but I assume a similar thing is available for Konqueror as well. The Nautilus Terminal even automatically <code class="highlighter-rouge">cd</code>s into the 
+directory when you click a folder, but not vice-versa. Also, you cannot choose where the terminal resides, it’s always 
+above the folder view. If there were some way for the terminal to tell the folder view what to display or highlight, and 
+this could be scripted, this <em>might</em> evolve into something useful. Right now, it’s barely better than a drop-down 
+console such as kuake or just a hotkey switch to my 1st desktop, where my terminal window lives.</p>
+
+<p><a href="/assets/nautilus-terminal.png"><img src="/assets/nautilus-terminal.png" alt="Nautilus Terminal" /></a></p>
+
+<h3 id="doing-something-about-it">Doing something about it</h3>
+
+<p>None of the existing options fulfills all the requirements (rxvt graphics come close to be forged into something really 
+useful, but rxvt lacks unicode support). So I started playing around and write some software.</p>
+
+<p>My first attempt was to follow approach (3) and create a graphical display that lives detached from the actual terminal 
+and can show thumbnails and other information that the terminal cannot show. The big advantage is that it can be used 
+with all combinations of terminal emulators and shells, so regardless if you’re a fan of urxvt like me or Konsole, or 
+bash or zsh, it can be used. The result is the prototypical implementation of 
+<a href="https://github.com/atextor/niveau/">Niveau</a>, the “Niveau visualization engine”. You open it as a separate window beside 
+your regular terminal emulator and it displays, e.g., a graphical directory listing. It is only a display without input 
+capabilities that is updated when the content in the terminal changes.</p>
+
+<p><a href="/assets/niveau.png"><img src="/assets/niveau.png" alt="Niveau" /></a></p>
+
+<p>The way it works is as follows: In the terminal you start <code class="highlighter-rouge">script -f /tmp/niveau-pipe</code>, which copies all the displayed 
+content of your terminal into a pipe in real-time, from where it is read by Niveau. Niveau then parses the prompt via a 
+regular expression, extracts the current directory from it, and displays the directory contents using a HTML 
+renderer<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>. It uses a template engine, so the display can be freely configured using HTML and CSS.
+As a proof-of-concept, it does work well. For everyday use, though, I found it to be too cumbersome. For large 
+directories it’s slow (could be improved in the implementation), but more importantly, I found it confusing to switch my 
+attention between the two windows all the time. This means, this is not the long-term solution I’m looking for.</p>
+
+<p>I briefly investigated approach (1) to see how much work it would be to implement a full-fledged terminal emulator in, 
+say, JavaScript so it could run inside WebKit or similar. By looking at the rxvt and urxvt sources and skimming over the 
+amount of standards I would need to implement, I refused the idea for now.</p>
+
+<p>So, (2) it is! How do I get graphics into the terminal? Note that at this point I had not discovered the rxvt graphics 
+mode. The first try was to abuse Unicode “drawing” characters to output images on a 256-color capable terminal, a tool I 
+call <a href="https://github.com/atextor/icat">icat</a> (image cat):</p>
+
+<p><a href="/assets/icat.png"><img src="/assets/icat.png" alt="icat" /></a></p>
+
+<p>It was a fun experiment to figure out how to do this (dithering 16/32 bit colors to the 256 colors of terminals), but I 
+did not find better Unicode characters for drawing than the half-character-blocks. Obviously, this is also no perfect 
+solution for the original problem, as the blocks are way to big.</p>
+
+<p>The next logical step was to teach a terminal graphics capabilities (I still did not know about rxvt’s graphics mode 
+then!). I would have preferred a solution that does not only run on Linux but on Windows and Mac as well, and took a 
+look at <a href="http://software.jessies.org/terminator/">Terminator</a>, a terminal emulator written in Java (which also means I 
+could have hacked it in Scala! Yay!). But first the UTF-8 support did not at all work as advertised, see a comparison of 
+Terminator with urxvt on the <a href="http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt">UTF-8-demo.txt</a>:</p>
+
+<p><a href="/assets/terminator-urxvt-utf8.png"><img src="/assets/terminator-urxvt-utf8.png" alt="Terminator vs URxvt with UTF-8" /></a></p>
+
+<p>Then I tried to switch to my favorite terminal font, <a href="http://terminus-font.sourceforge.net/">Terminus</a>, which resulted 
+in:</p>
+
+<p><a href="/assets/terminator-terminus.png"><img src="/assets/terminator-terminus.png" alt="Terminator with Terminus font" /></a></p>
+
+<p>For this reason, Terminator was out of the question and I took urxvt as my new target, one of the best, if not the best 
+terminal emulator out there. Even if it meant dealing with C++ ;-). The source code is very much optimized for text 
+display, as I found out while digging through it. I invented a schema for encoding pixel data in terminal escape codes 
+and added support for that in urxvt, and voilà:</p>
+
+<p><a href="/assets/urxvt-graphics.png"><img src="/assets/urxvt-graphics.png" alt="URxvt with graphics" /></a></p>
+
+<p>(Note that the icat command in the screenshot is not the one I linked earlier, but a special version to work with the 
+urxvt hack.) Interestingly, the rxvt graphics support also works with custom escape codes, but does not encode pixel 
+data but rather drawing primitives such as drawing a line. The urxvt graphics mode looks nice on a screenshot, but is 
+very broken when the text in the terminal scrolls. A lot more changes to the code would be needed to make this 
+practical.</p>
+
+<h3 id="what-now">What now</h3>
+
+<p>The quest is not at its end, and there are several ways to go from here. I’ll probably not develop Niveau any further, 
+because it’s too impractical. One good way seems to be to take hints from the rxvt graphics mode to improve my own urxvt 
+graphics mode. In the meantime I’ll keep TermKit on the radar. Maybe there are other projects or approaches I’ve missed?</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Or any other powerful text editor of course. Although vim &gt; <code class="highlighter-rouge">*</code>. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>I’m aware that this could also be achieved with a prompt function. The idea was to read other content from the terminal as well, e.g., what you’re currently typing. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div>
+
+</article>
+
+			</div>
+		</div>
+
+	<footer class="site-footer">
+
+	<div class="wrapper">
+
+		<div class="footer"> 
+			<a href="about.md">About</a> 
+		</div>
+
+	</div>
+
+</footer>
+
+
+	</body>
+
+</html>

@@ -33,7 +33,7 @@ file for you, `~/.node-red/settings.js`. In there, you will find settings to
 enable HTTPS by itself - ignore those. By using the built-in mechanism for 
 HTTPS, you have to choose between running node-red as root (so that it can read 
 your certificate and private key) or making the private key readable for 
-non-root users. We went to do neither.
+non-root users. We want to do neither.
 
 We will solve this problem by setting up [nginx](https://www.nginx.com/) as a 
 proxy that will handle HTTPS for us. It will forward all requests to node-red, 

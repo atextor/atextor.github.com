@@ -9,7 +9,7 @@ vim: set fo=aw2tq, tw=120, spelllang=en
 
 [node-red](http://nodered.org/) is a great visual tool for wiring workflows. 
 There are [tons](http://flows.nodered.org/) of *nodes* that you can install to 
-make it do all kind of things.
+make it do all kinds of things.
 
 Installation for testing purposes is also easy:
 

@@ -26,7 +26,7 @@
 		<foaf:workplaceHomepage rdf:resource="https://wwwvs.cs.hs-rm.de"/>
 		<foaf:workInfoHomepage rdf:resource="https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html"/>
 		<foaf:schoolHomepage rdf:resource="https://www.hs-rm.de/"/>
-		<foaf:weblog rdf:resource="https://atextor.blogspot.com/"/>
+		<foaf:weblog rdf:resource="http://atextor.de/"/>
 		<foaf:myersBriggs>INTP</foaf:myersBriggs>
 		<rdfs:seeAlso rdf:resource="http://www.hs-rm.de/dcsm/ueber-uns/personen-im-fachbereich/personalseiten-fb-dcsm/msc-andreas-textor/index.html"/>
 		<rdfs:seeAlso rdf:resource="http://www.cs.hs-rm.de/~textor/"/>

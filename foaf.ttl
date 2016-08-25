@@ -1,4 +1,4 @@
-@prefix :     <http://atextor.de/foaf.ttl#> .
+@prefix :     <http://atextor.de#> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dc:   <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -7,93 +7,95 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dbp:  <http://dbpedia.org/resource/> .
 
+# This document
 <>
-    dc:title "Profile of Andreas Textor" ;
     a foaf:PersonalProfileDocument ;
+    dc:title "Profile of Andreas Textor" ;
     foaf:maker :atextor ;
     foaf:primaryTopic :atextor .
 
-<http://dbpedia.org/resource/Command-line_interface>
-    dc:title "Command Line Interfaces" .
-
-<http://dbpedia.org/resource/Information_technology_management>
-    dc:title "IT Management" .
-
-<http://dbpedia.org/resource/Linux>
-    dc:title "Linux" .
-
-<http://dbpedia.org/resource/Ontology_engineering>
-    dc:title "Ontology Engineering" .
-
-<http://dbpedia.org/resource/Scala_(programming_language)>
-    dc:title "Scala" .
-
+# Me
 :atextor
     a foaf:Person ;
+
+    # Personal information
+    foaf:name "Andreas Textor" ;
+    foaf:familyName "Textor" ;
+    foaf:firstName "Andreas" ;
+    foaf:nick "atextor" ;
+    foaf:gender "male" ;
+    foaf:logo <http://atextor.de/assets/avatar.png> ;
+    foaf:mbox_sha1sum "e8be7266c7e8bc49f5179542d9033b15a1752550" ;
+    foaf:myersBriggs "INTP" ;
+
+    # Websites and online accounts
+    foaf:homepage <http://atextor.de> ;
+    foaf:weblog <http://atextor.de/> ;
+    foaf:publications <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
+    foaf:schoolHomepage <https://www.hs-rm.de/> ;
+    foaf:workInfoHomepage <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
+    foaf:workplaceHomepage <https://wwwvs.cs.hs-rm.de> ;
     rdfs:seeAlso <http://www.cs.hs-rm.de/~textor/>,
                  <http://www.hs-rm.de/dcsm/ueber-uns/personen-im-fachbereich/personalseiten-fb-dcsm/msc-andreas-textor/index.html> ;
     foaf:account [
-        dc:title "Twitter" ;
         a foaf:OnlineAccount ;
+        dc:title "Twitter" ;
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.twitter.com/atextor> ;
         foaf:accountServiceHomepage <https://www.twitter.com>
     ], [
-        dc:title "Github" ;
         a foaf:OnlineAccount ;
+        dc:title "Github" ;
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.github.com/atextor> ;
         foaf:accountServiceHomepage <https://www.github.com>
     ], [
-        dc:title "Keybase" ;
         a foaf:OnlineAccount ;
+        dc:title "Keybase" ;
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.keybase.io/atextor> ;
         foaf:accountServiceHomepage <https://www.keybase.io>
     ], [
-        dc:title "Twister" ;
         a foaf:OnlineAccount ;
+        dc:title "Twister" ;
         foaf:accountName "atextor" ;
         foaf:accountServiceHomepage <http://twister.net.co>
     ], [
-        dc:title "GNU Social" ;
         a foaf:OnlineAccount ;
+        dc:title "GNU Social" ;
         foaf:accountName "@atextor@quitter.no" ;
         foaf:accountProfilePage <https://quitter.no/atextor> ;
         foaf:accountServiceHomepage <https://quitter.no>
     ] ;
     foaf:based_near [
-        dc:title "Wiesbaden" ;
         a geo:Point ;
+        dc:title "Wiesbaden" ;
         geo:lat "50.08" ;
         geo:long "8.24" ;
         foaf:name "Wiesbaden, Deutschland"@de,
                   "Wiesbaden, Germany"
     ] ;
-    foaf:familyName "Textor" ;
-    foaf:firstName "Andreas" ;
-    foaf:gender "male" ;
-    foaf:homepage <http://atextor.de> ;
+
+    # Misc. info
     foaf:interest <http://dbpedia.org/resource/Command-line_interface>,
                   <http://dbpedia.org/resource/Information_technology_management>,
                   <http://dbpedia.org/resource/Linux>,
                   <http://dbpedia.org/resource/Ontology_engineering>,
                   <http://dbpedia.org/resource/Scala_(programming_language)> ;
-    foaf:logo <http://atextor.de/assets/avatar.png> ;
-    foaf:mbox_sha1sum "e8be7266c7e8bc49f5179542d9033b15a1752550" ;
-    foaf:myersBriggs "INTP" ;
-    foaf:name "Andreas Textor" ;
-    foaf:nick "atextor" ;
-    foaf:publications <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
-    foaf:schoolHomepage <https://www.hs-rm.de/> ;
-    foaf:weblog <http://atextor.de/> ;
-    foaf:workInfoHomepage <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
-    foaf:workplaceHomepage <https://wwwvs.cs.hs-rm.de> ;
+
+    # GPG
     wot:hasKey [
-        dc:title "GPG Public Key" ;
         a wot:PubKey ;
+        dc:title "GPG Public Key" ;
         wot:fingerprint "E3A790BB63B791ABE551801179A25FA5AAC9D7A8" ;
         wot:hex_id "AAC9D7A8" ;
         wot:pubkeyAddress <http://atextor.de/atextor.asc>
     ] .
+
+# Describe interest entities
+<http://dbpedia.org/resource/Command-line_interface> dc:title "Command Line Interfaces" .
+<http://dbpedia.org/resource/Information_technology_management> dc:title "IT Management" .
+<http://dbpedia.org/resource/Linux> dc:title "Linux" .
+<http://dbpedia.org/resource/Ontology_engineering> dc:title "Ontology Engineering" .
+<http://dbpedia.org/resource/Scala_(programming_language)> dc:title "Scala" .
 

@@ -19,7 +19,7 @@
 		<foaf:firstName>Andreas</foaf:firstName>
 		<foaf:familyName>Textor</foaf:familyName>
 		<foaf:nick>atextor</foaf:nick>
-		<foaf:logo rdf:resource="http://atextor.de/avatar.png"/>
+		<foaf:logo rdf:resource="http://atextor.de/assets/avatar.png"/>
 		<foaf:gender>male</foaf:gender>
 		<foaf:mbox_sha1sum>e8be7266c7e8bc49f5179542d9033b15a1752550</foaf:mbox_sha1sum>
 		<foaf:homepage rdf:resource="http://atextor.de"/>

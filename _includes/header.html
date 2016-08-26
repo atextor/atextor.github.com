@@ -2,7 +2,11 @@
 
 	<div class="wrapper">
 
-		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}
+		{% if page.title != site.title %}
+		<img src="{{ "/assets/avatar.png" | prepend: site.baseurl }}" style="width: 45px; height: 45px;"/>
+		{% endif %}
+		</a>
 
 		<nav class="site-nav">
 			<div class="trigger">

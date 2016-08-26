@@ -3,10 +3,11 @@
 	<div class="wrapper">
 
 		<a class="site-title" href="{{ site.baseurl }}/">
-		{% if page.title != site.title %}
+		{% if !page.title || page.title != site.title %}
 		<img src="{{ "/assets/avatar.png" | prepend: site.baseurl }}" style="width: 40px; height: 40px;"/>
 		{% endif %}
-		{{ site.title }}</a>
+		</a>
+		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
 		<nav class="site-nav">
 			<div class="trigger">

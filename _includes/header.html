@@ -2,11 +2,11 @@
 
 	<div class="wrapper">
 
-		<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}
+		<a class="site-title" href="{{ site.baseurl }}/">
 		{% if page.title != site.title %}
-		<img src="{{ "/assets/avatar.png" | prepend: site.baseurl }}" style="width: 45px; height: 45px;"/>
+		<img src="{{ "/assets/avatar.png" | prepend: site.baseurl }}" style="width: 40px; height: 40px;"/>
 		{% endif %}
-		</a>
+		{{ site.title }}</a>
 
 		<nav class="site-nav">
 			<div class="trigger">

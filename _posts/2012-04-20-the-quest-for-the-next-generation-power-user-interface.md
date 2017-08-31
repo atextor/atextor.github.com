@@ -153,8 +153,7 @@ terminal emulator out there. Even if it meant dealing with C++ ;-). The source c
 display, as I found out while digging through it. I invented a schema for encoding pixel data in terminal escape codes 
 and added support for that in urxvt, and voilà:
 
-[![URxvt with graphics]({{ "/assets/urxvt-graphics.png" | prepend: site.baseurl }})]({{ "/assets/urxvt-graphics.png" | 
-prepend: site.baseurl }})
+[![URxvt with graphics]({{ "/assets/urxvt-graphics.png" | prepend: site.baseurl }})]({{ "/assets/urxvt-graphics.png" | prepend: site.baseurl }})
 
 (Note that the icat command in the screenshot is not the one I linked earlier, but a special version to work with the 
 urxvt hack.) Interestingly, the rxvt graphics support also works with custom escape codes, but does not encode pixel 

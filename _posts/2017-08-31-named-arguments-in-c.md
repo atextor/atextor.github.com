@@ -60,3 +60,8 @@ doesn't contain any arrays that you don't want to copy every time the function
 is called.
 
 You can find the whole file in this [gist](https://gist.github.com/atextor/43e4f6313afba84ad6e656c5abba0755).
+
+<div><hr/></div>
+
+Please go [here](https://github.com/atextor/atextor.github.com/issues/4) to
+comment this article.

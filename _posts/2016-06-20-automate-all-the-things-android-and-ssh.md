@@ -68,3 +68,7 @@ value field, enter a literal line break, i.e., press ↩.
 9. Now you will have the result of the command without its trailing newline bound to the variable
 `%result1`.
 
+<div><hr/></div>
+
+Please go [here](https://github.com/atextor/atextor.github.com/issues/3) to
+comment this article.

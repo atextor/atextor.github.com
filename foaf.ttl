@@ -24,13 +24,13 @@
     foaf:firstName "Andreas" ;
     foaf:nick "atextor" ;
     foaf:gender "male" ;
-    foaf:logo <http://atextor.de/assets/avatar.png> ;
+    foaf:logo <https://atextor.de/assets/avatar.png> ;
     foaf:mbox_sha1sum "e8be7266c7e8bc49f5179542d9033b15a1752550" ;
     foaf:myersBriggs "INTP" ;
 
     # Websites and online accounts
-    foaf:homepage <http://atextor.de> ;
-    foaf:weblog <http://atextor.de/> ;
+    foaf:homepage <https://atextor.de> ;
+    foaf:weblog <https://atextor.de/> ;
     foaf:publications <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
     foaf:schoolHomepage <https://www.hs-rm.de/> ;
     foaf:workInfoHomepage <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
@@ -89,7 +89,7 @@
         dc:title "GPG Public Key" ;
         wot:fingerprint "E3A790BB63B791ABE551801179A25FA5AAC9D7A8" ;
         wot:hex_id "AAC9D7A8" ;
-        wot:pubkeyAddress <http://atextor.de/atextor.asc>
+        wot:pubkeyAddress <https://atextor.de/atextor.asc>
     ] .
 
 # Describe interest entities

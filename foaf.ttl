@@ -33,10 +33,7 @@
     foaf:weblog <https://atextor.de/> ;
     foaf:publications <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
     foaf:schoolHomepage <https://www.hs-rm.de/> ;
-    foaf:workInfoHomepage <https://wwwvs.cs.hs-rm.de/mitarbeiter/details/a_textor.html> ;
-    foaf:workplaceHomepage <https://wwwvs.cs.hs-rm.de> ;
-    rdfs:seeAlso <http://www.cs.hs-rm.de/~textor/>,
-                 <http://www.hs-rm.de/dcsm/ueber-uns/personen-im-fachbereich/personalseiten-fb-dcsm/msc-andreas-textor/index.html> ;
+    foaf:workplaceHomepage <https://www.bosch-connected-industry.com/> ;
     foaf:account [
         a foaf:OnlineAccount ;
         dc:title "Twitter" ;
@@ -55,25 +52,14 @@
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.keybase.io/atextor> ;
         foaf:accountServiceHomepage <https://www.keybase.io>
-    ], [
-        a foaf:OnlineAccount ;
-        dc:title "Twister" ;
-        foaf:accountName "atextor" ;
-        foaf:accountServiceHomepage <http://twister.net.co>
-    ], [
-        a foaf:OnlineAccount ;
-        dc:title "GNU Social" ;
-        foaf:accountName "@atextor@quitter.no" ;
-        foaf:accountProfilePage <https://quitter.no/atextor> ;
-        foaf:accountServiceHomepage <https://quitter.no>
     ] ;
     foaf:based_near [
         a geo:Point ;
-        dc:title "Wiesbaden" ;
-        geo:lat "50.08" ;
-        geo:long "8.24" ;
-        foaf:name "Wiesbaden, Deutschland"@de,
-                  "Wiesbaden, Germany"
+        dc:title "Stuttgart" ;
+        geo:lat "48.7755" ;
+        geo:long "9.1827" ;
+        foaf:name "Stuttgart, Deutschland"@de,
+                  "Stuttgart, Germany"
     ] ;
 
     # Misc. info

@@ -21,7 +21,7 @@ functional domains in a company. As everyone likes statistics, here are some:
 | Number of lines of programmatically generated ontologies for Case study (OWL) |   178725 |
 | Number of lines of manually written rules (Jena Rules)                        |      778 |
 | Number of lines of programmatically generated rules (Jena Rules)              |     2726 |
-| Number of lines of the COBIT Ontology developed as part of the thesis         |   204411 |
+| Number of lines of the [COBIT Ontology](https://github.com/atextor/cobit5-ontology) developed as part of the thesis |   204411 |
 | Number of citations in thesis                                                 |      273 |
 | Number of lines of code for the text of the thesis (LaTeX)                    |     8186 |
 | Number of lines of code for the diagrams of the thesis (TikZ/LaTeX)           |     5166 |

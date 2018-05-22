@@ -12,8 +12,8 @@ vim: set fo=aw2tq, tw=120, spelllang=de,en
 Angaben gemäß § 5 TMG:
 
 Andreas Textor<br/>
-Walkmühltalanlagen 40<br/>
-65195 Wiesbaden
+Kirchackerweg 12<br/>
+71384 Weinstadt
 
 Email: mail&#64;<span class="nothing">atextor</span>.de<br/> 
 Tel.: <span class="pad">+49</span><span class="pad">178</span><span class="pad">2120989</span>

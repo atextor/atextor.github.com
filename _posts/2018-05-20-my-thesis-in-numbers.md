@@ -25,7 +25,7 @@ functional domains in a company. As everyone likes statistics, here are some:
 | Number of citations in thesis                                                 |      273 |
 | Number of lines of code for the text of the thesis (LaTeX)                    |     8186 |
 | Number of lines of code for the diagrams of the thesis (TikZ/LaTeX)           |     5166 |
-| Number of lines of code for the cication data of the thesis (RDF/Turtle)      |    15484 |
+| Number of lines of code for the citation data of the thesis (RDF/Turtle)      |    15484 |
 | Time to build the thesis with xelatex on my T420                              | 2:02.247 |
 | Number of git commits for prototype and text (excluding Case study)           |      849 |
 | Cups of coffee consumed (approx.)                                             |     3200 |

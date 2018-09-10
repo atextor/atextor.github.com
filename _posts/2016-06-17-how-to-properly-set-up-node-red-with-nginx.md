@@ -78,7 +78,7 @@ Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)
 page for more information. In short, we value security higher than
 compatibility with older clients. Lines 10-17 set up the proxy that will
 forward the traffic to node-red. Lines 14-16 enable WebSocket upgrade requests.
-Without theses three lines, node-red will work for a few seconds an then
+Without theses three lines, node-red will work for a few seconds and then
 display an error message like *Lost connection to server*.
 
 Note that we have not configured forwarding or rewriting from HTTP to HTTPS,

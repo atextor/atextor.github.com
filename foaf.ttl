@@ -26,7 +26,6 @@
     foaf:gender "male" ;
     foaf:logo <https://atextor.de/assets/avatar.png> ;
     foaf:mbox_sha1sum "e8be7266c7e8bc49f5179542d9033b15a1752550" ;
-    foaf:myersBriggs "INTP" ;
 
     # Websites and online accounts
     foaf:homepage <https://atextor.de> ;

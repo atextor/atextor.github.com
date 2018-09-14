@@ -51,6 +51,12 @@
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.keybase.io/atextor> ;
         foaf:accountServiceHomepage <https://www.keybase.io>
+-    ], [
+-        a foaf:OnlineAccount ;
+-        dc:title "Mastodon" ;
+-        foaf:accountName "@atextor@chaos.social" ;
+-        foaf:accountProfilePage <https://chaos.social/@atextor> ;
+-        foaf:accountServiceHomepage <https://chaos.social>
     ] ;
     foaf:based_near [
         a geo:Point ;

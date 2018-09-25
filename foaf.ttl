@@ -22,6 +22,7 @@
     foaf:name "Andreas Textor" ;
     foaf:familyName "Textor" ;
     foaf:firstName "Andreas" ;
+    foaf:title "Dr" ;
     foaf:nick "atextor" ;
     foaf:gender "male" ;
     foaf:logo <https://atextor.de/assets/avatar.png> ;

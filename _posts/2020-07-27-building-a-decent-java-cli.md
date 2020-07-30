@@ -227,6 +227,64 @@ some more support for different ways to start our command, as we will see in the
    [ncurses](https://en.wikipedia.org/wiki/Ncurses), except it's written in Java and requires no
    native libraries.
    
+### Options for starting your Command
+
+Let's be blunt: When you have written a cool new CLI tool called `foo`, a user wants to run `foo
+--help`, not `java -jar ~/somewhere/foo-1.0.jar --help`. So what options do we have to remedy that?
+
+Unlike virtually every other programming language environment, Java does not have a package
+mechanism that allows a user to install commands directly into their PATH (think `npm install -g`,
+`pip install`, etc.). The next best thing would be something like `mvn dependency:get
+-Dartifact=com.foo:foo:1.0`, which is ... not really what we want. So what we can do is one of the
+following:
+
+1. Use a wrapper script. Write a shell script that optionally checks you JVM, then runs your jar
+   with the provided arguments.
+1. Use a shell alias. This would have to be set in the user's environment and basically does the
+   same thing as the wrapper script.
+1. Use a wrapper-compiler such as [launch4j](http://launch4j.sourceforge.net/) that creates a native
+   executable that wraps your .jar and either bundles a JRE or uses an already-installed JRE on the
+   user's computer. It's good because we can finally directly call `foo`, but it's not optimal
+   because the command still needs to spin up a JVM.
+1. Then there's [GraalVM Native Image](https://www.graalvm.org/docs/reference-manual/native-image/),
+   which takes your Java application and compiles it into a standalone binary that does not require
+   a JVM any more. The binary includes the code from all necessary classes, dependencies, runtime
+   library classes from JDK and statically linked native code from JDK. A CLI tool is the type of
+   application that profits the most from the increased startup speed of a native binary, so this is
+   the approach that makes the most sense for us. Unfortunately, it's also the trickiest to make work.
+
+### Building a Native Image for your CLI tool
+
+How does GraalVM can create a Native Image, considering there's things like reflection or
+annotations that are evaluated at runtime?
+
+1. GraalVM Native Image does a static analysis of your code and its dependencies. This covers all of
+   your regular Java code, but requires all dependencies to be present at build time.
+1. For features such as reflection, JNI, Classpath Resources or Dynamic Proxies, there is a
+   so-called Tracing Agent: The application is built as a regular executable jar and is then
+   executed with a Java agentlib provided by GraalVM which traces all calls and creates JSON files
+   describing the respective features: `reflect-config.json`, `jni-config.json`,
+   `resource-config.json` and `proxy-config.json`. These are then read by the native image compiler.
+   There is [dedicated
+   tutorial](https://github.com/oracle/graal/blob/master/substratevm/CONFIGURE.md) on this.
+1. For handling annotations with runtime retention, you can write your own JSON descriptors that
+   control what should be visible at build time and how. Sometimes you get tool support for that,
+   for example PicoCLI [provides an annotation
+   processor](https://www.infoq.com/articles/java-native-cli-graalvm-picocli/) you can plug in your
+   build setup to have the JSON descriptors automatically generated from your annotated code.
+1. Scanning the class path at runtime, e.g. for annotations, must be changed to be done at build
+   time. If you use [classgraph](https://github.com/classgraph/classgraph) for that, there's a
+   [separate guide](https://github.com/classgraph/classgraph/wiki/Build-Time-Scanning) on that.
+1. Certain things, for example CGLIB Proxies, won't work in GraalVM Native image.
+1. If you intend to use Spring Boot (e.g. with `@SpringBootConsoleApplication`) with GraalVM, the
+   good news is, [it's possible in
+   principle](https://spring.io/blog/2020/04/16/spring-tips-the-graalvm-native-image-builder-feature).
+   Some preparations need to be made: Classpath scanning must be configured to be
+   performed at build time, CGLIB Proxies must be disabled, Autoconfiguration needs some hints to
+   make it work at build time.
+
+### Frameworks
+
 * * *
 
 [^1]: Because moving the cursor around, at least on Unix, is done using ANSI escape sequences, just

@@ -92,7 +92,7 @@ the right
    just ignores it. Don't do that, CTRL+C should always stop your command. The same holds for
    SIGTERM. Fortunately, this one is rare in the Java universe, because there's no portable way to
    handle arbitrary signals.
-   
+
 ### The right amount of output
 
 1. It's nice to have some kind of feedback while your command is working for more than a second. Bad
@@ -121,17 +121,17 @@ really not that new. Just a few more points:
    something. You may know that it is starting a JVM, scanning the classpath or whatever it is
    doing, but the user should not have to care. This particular point can be tricky in Java, we'll
    come back to it later.
-   
+
    Starting a Java-based CLI (symbol picture) [Author: [Rowan](https://www.flickr.com/photos/bupp/), Licenced [by-nc-nd](https://creativecommons.org/licenses/by-nc-nd/2.0/), [Source](https://www.flickr.com/photos/bupp/424464685/)]
    [![Sleeping at the keyboard]({{ "/assets/cli-sleep.jpg" | prepend: site.baseurl }})]({{ "/assets/cli-sleep.jpg" | prepend: site.baseurl }})
-   
+
 1. The command might have some `login` functionality (think e.g. Microsoft Azure CLI `az` or Travis
    CI `travis`) and needs to locally store credentials. Do I only have a choice between storing
    credentials in plain text or to reinvent the wheel? Of course not. Look up for example
    .authinfo.gpg, how `git` is handling credential storage (auth helpers) or platform-specific
    mechanisms such as keyrings. Yes, even when you're not building a GUI, it's possible to use OS
    APIs.
-   
+
 ## How to Build it in Java
 
 Now that we've established the rules, let's take a look at the tools we have available and patterns
@@ -200,15 +200,15 @@ help. For this we have the following options:
          System.out.println(javax.xml.bind.DatatypeConverter.printHexBinary(digest));
          return 0;
       }
-   } 
+   }
    ```
-   
+
    PicoCLI's documentation covers many topics that go beyond just parsing the command line but that
    could come up in building your CLI tool, such as internationalization, testing or generating tab
    completion scripts for your command for popular shells. There's a lot of
    [examples](https://github.com/remkop/picocli/tree/master/picocli-examples/src/main/java/picocli/examples)
    available.
-   
+
 Both projects do their job quite well, although PicoCLI has, apart from being more feature-rich,
 some more support for different ways to start our command, as we will see in the following sections.
 
@@ -226,7 +226,7 @@ some more support for different ways to start our command, as we will see in the
    can check out [lanterna](https://github.com/mabe02/lanterna), which is similar to
    [ncurses](https://en.wikipedia.org/wiki/Ncurses), except it's written in Java and requires no
    native libraries.
-   
+
 ### Options for starting your Command
 
 Let's be blunt: When you have written a cool new CLI tool called `foo`, a user wants to run `foo
@@ -239,7 +239,7 @@ mechanism that allows a user to install commands directly into their PATH (think
 following:
 
 1. Use a wrapper script. Write a shell script that optionally checks you JVM, then runs your jar
-   with the provided arguments.
+   with the provided arguments[^2].
 1. Use a shell alias. This would have to be set in the user's environment and basically does the
    same thing as the wrapper script.
 1. Use a wrapper-compiler such as [launch4j](http://launch4j.sourceforge.net/) that creates a native
@@ -249,14 +249,16 @@ following:
 1. Then there's [GraalVM Native Image](https://www.graalvm.org/docs/reference-manual/native-image/),
    which takes your Java application and compiles it into a standalone binary that does not require
    a JVM any more. The binary includes the code from all necessary classes, dependencies, runtime
-   library classes from JDK and statically linked native code from JDK. A CLI tool is the type of
-   application that profits the most from the increased startup speed of a native binary, so this is
-   the approach that makes the most sense for us. Unfortunately, it's also the trickiest to make work.
+   library classes from JDK and statically linked native code from JDK. Unlike your regular Java
+   application that needs to first spin up a JVM, this standalone binary starts instantly. A CLI
+   tool is the type of application that profits the most from the increased startup speed of a
+   native binary, so this is the approach that makes the most sense for us: This is the way we can
+   avoid the annoying delay at startup. Unfortunately, it's also the trickiest to make work.
 
 ### Building a Native Image for your CLI tool
 
-How does GraalVM can create a Native Image, considering there's things like reflection or
-annotations that are evaluated at runtime?
+How can GraalVM create a native image, considering there's things like reflection or annotations
+that are evaluated at runtime?
 
 1. GraalVM Native Image does a static analysis of your code and its dependencies. This covers all of
    your regular Java code, but requires all dependencies to be present at build time.
@@ -279,9 +281,11 @@ annotations that are evaluated at runtime?
 1. If you intend to use Spring Boot (e.g. with `@SpringBootConsoleApplication`) with GraalVM, the
    good news is, [it's possible in
    principle](https://spring.io/blog/2020/04/16/spring-tips-the-graalvm-native-image-builder-feature).
-   Some preparations need to be made: Classpath scanning must be configured to be
-   performed at build time, CGLIB Proxies must be disabled, Autoconfiguration needs some hints to
-   make it work at build time.
+   Some preparations need to be made: Classpath scanning must be configured to be performed at build
+   time, CGLIB Proxies must be disabled, Autoconfiguration needs some hints to make it work at build
+   time. All in all, it's pretty tedious;
+   [here](https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/) is an article that walks you
+   through it.
 
 ### Frameworks
 
@@ -289,6 +293,10 @@ annotations that are evaluated at runtime?
 
 [^1]: Because moving the cursor around, at least on Unix, is done using ANSI escape sequences, just
     like producing colored output.
+
+[^2]: You might say: You could handle _just_ the `--help` arguments and the like in the wrapper
+    script to have _that_ give instant feedback to avoid the JVM startup time, and you might
+    technically be right. However, I won't go into detail on how that's a bad idea.
 
 Please go [here](https://github.com/atextor/atextor.github.com/issues/5) to
 comment this article.

@@ -172,10 +172,10 @@ help. For this we have the following options:
 
    JCommander has features such as repeatable arguments, interfaces for converters (e.g. for handling
    files) and custom validation. It has basic support for subcommands (e.g. `git commit`).
-1. Using [PicoCLI](https://picocli.info/). In its goals it's comparable to JCommander, however it is
+1. Using [Picocli](https://picocli.info/). In its goals it's comparable to JCommander, however it is
    the more active project and provides a lot more features such as positional parameters, colored
    and configurable help output, solid support for nesting subcommands and shared parameters via
-   mixins. The following example is taken from PicoCLI's [Quick
+   mixins. The following example is taken from Picocli's [Quick
    Guide](https://picocli.info/quick-guide.html):
 
    ```java
@@ -203,13 +203,13 @@ help. For this we have the following options:
    }
    ```
 
-   PicoCLI's documentation covers many topics that go beyond just parsing the command line but that
+   Picocli's documentation covers many topics that go beyond just parsing the command line but that
    could come up in building your CLI tool, such as internationalization, testing or generating tab
    completion scripts for your command for popular shells. There's a lot of
    [examples](https://github.com/remkop/picocli/tree/master/picocli-examples/src/main/java/picocli/examples)
    available.
 
-Both projects do their job quite well, although PicoCLI has, apart from being more feature-rich,
+Both projects do their job quite well, although Picocli has, apart from being more feature-rich,
 some more support for different ways to start our command, as we will see in the following sections.
 
 ### Nice output and interactive TextUI
@@ -217,7 +217,7 @@ some more support for different ways to start our command, as we will see in the
 1. To generate portable colored text output from Java, you'll want to use
    [jansi](https://github.com/fusesource/jansi), which describes itself as follows: "Jansi is a
    small java library that allows you to use ANSI escape sequences to format your console output
-   which works even on windows." In fact, PicoCLI also uses Janso to create colored output.
+   which works even on windows." In fact, Picocli also uses Janso to create colored output.
 1. To handle interactive text input (i.e. you can input a line of text and use the arrow keys and
    backspace to edit), you'll want to use [jline3](https://github.com/jline/jline3). Getting this
    right in a portable way could otherwise be tricky. In order to make Jline work on all platforms,
@@ -271,8 +271,8 @@ that are evaluated at runtime?
    tutorial](https://github.com/oracle/graal/blob/master/substratevm/CONFIGURE.md) on this.
 1. For handling annotations with runtime retention, you can write your own JSON descriptors that
    control what should be visible at build time and how. Sometimes you get tool support for that,
-   for example PicoCLI [provides an annotation
-   processor](https://www.infoq.com/articles/java-native-cli-graalvm-picocli/) you can plug in your
+   for example Picocli [provides an annotation
+   processor](https://picocli.info/#_graalvm_native_image) you can plug in your
    build setup to have the JSON descriptors automatically generated from your annotated code.
 1. Scanning the class path at runtime, e.g. for annotations, must be changed to be done at build
    time. If you use [classgraph](https://github.com/classgraph/classgraph) for that, there's a
@@ -287,7 +287,58 @@ that are evaluated at runtime?
    [here](https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/) is an article that walks you
    through it.
 
-### Frameworks
+### Putting it all together: Frameworks
+
+So we've determined that it's a good idea to use Picocli and GraalVM. To combine those technologies
+to build a base for your command line application, you have, again, different options on how you
+approach this:
+
+1. Use just Picocli and set up GraalVM in your build. There's [an excellent
+   article](https://www.infoq.com/articles/java-native-cli-graalvm-picocli/) on how to do this by
+   Remko Popma, the author of Picocli.
+1. The [Quarkus](https://quarkus.io) framework, "a Kubernetes Native Java stack tailored for OpenJDK
+   HotSpot and GraalVM" can also be used to write a CLI tool. There is [a
+   guide](https://quarkus.io/guides/picocli) to build a Quarkus Command Mode application using
+   Picocli, however this is considered experimental as of now.
+1. Then there's the [Micronaut](https://micronaut.io/) framework, which is targeted at "building
+   modular, easily testable microservice and serverless applications." In Micronaut, Picocli is a
+   first class citizen using the [Micronaut Picocli
+   Configuration](https://micronaut-projects.github.io/micronaut-picocli/latest/guide/). The easiest
+   way to get started here is using the [Micronaut Launcher](https://micronaut.io/launch/), which is
+   comparable to the [Spring initializr](https://start.spring.io/). Be sure to change the project
+   type from "Application" to "CLI Application" in the top left dropdown: This will include Picocli
+   and let you download a project that can directly be compiled to a native binary using GraalVM
+   Native Image.
+
+   [![Micronaut Launcher]({{ "/assets/cli-micronaut.png" | prepend: site.baseurl }})]({{ "/assets/cli-micronaut.png" | prepend: site.baseurl }})
+
+### Tips for building with GraalVM
+
+Let's assume you've already set up your project using one of the options described in the previous
+section and are about to build all the cool functionality of your tool. If your application depends
+on third-party dependencies that fall into one of the "tricky" categories of GraalVM, you might have
+to fiddle around at times. Here's some of the points I've stumpled upon:
+
+1. If you use Picocli's annotation processor to generate GraalVM configurations and _in addition to
+   that_ want to provide GraalVM configurations that you maintain yourself (either written entirely
+   manually or initially generated using the Tracing Agent), use two different paths for both. For
+   example, put the maintained configs into `${project.projectDir}/native-image`, then have
+   `native-image` automatically merge the configs from both paths via a command line switch such as
+   `-H:ConfigurationFileDirectories=${project.projectDir}/native-image,${buildDir}/classes/java/main/META-INF/native-image/picocli-generated/yourtool`.
+   Otherwise configs will either be overwritten or ignored during the build.
+1. GraalVM has the concept of a "fallback image": When it can't build a proper native image for any
+   reason, it will try to build a "fallback image", which is an executable binary that will still
+   require a JVM at runtime. This is effectively the same as using launch4j, and is not what we
+   want. To suppress this behavior, add the `--no-fallback` switch to `native-image`.
+1. There is the behavior to allow building an image with an incomplete class path where type
+   resolution errors only occur at run time rather than at build time. The documentation suggests
+   that this is not the default behavior (any more?), but to be sure to have incomplete class paths
+   reported at build time, add the `-H:+AllowIncompleteClasspath` switch.
+1. It's very possible that your native image successfully compiles but for some reason still fails
+   at run time even though the executable jar it was compiled from works as intended. It might be a
+   good idea to automatically run the compiled binary with a set of test inputs automatically in
+   your build pipeline to make sure that changing the `native-image` setup or the dependencies did
+   not break your application.
 
 * * *
 

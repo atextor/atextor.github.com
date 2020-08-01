@@ -377,5 +377,5 @@ the future.
     script to have _that_ give instant feedback to avoid the JVM startup time, and you might
     technically be right. However, I won't go into detail on how that's a bad idea.
 
-Please go [here](https://github.com/atextor/atextor.github.com/issues/6) to
+Please go [here](https://github.com/atextor/atextor.github.com/issues/7) to
 comment this article.

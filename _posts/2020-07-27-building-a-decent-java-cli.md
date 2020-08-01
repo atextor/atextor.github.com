@@ -356,7 +356,7 @@ It's possible to build a CLI tool in Java that can start instantly and follows t
 for CLI tools. The easiest way to get started is using the Micronaut framework that will use the
 Picocli library to do the argument parsing. Resulting binaries range between 20 and 80 MB (depending
 on the amount and size of your dependencies) which is, depending on your point of view, either very
-large or very small. Compared to "regular" binaries build with, say Rust, C++ or Go, that's pretty
+large or very small. Compared to "regular" binaries built with, say, Rust, C++ or Go, that's pretty
 big. But compared to distributing your application together with the required JRE/JDK, it's actually
 not that large. While it's sometimes a litte tricky to get GraalVM Native Image to do what you want,
 especially in combination with additional dependencies, this is in part remedied by the use of a

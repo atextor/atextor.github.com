@@ -125,12 +125,13 @@ really not that new. Just a few more points:
    Starting a Java-based CLI (symbol picture) [Author: [Rowan](https://www.flickr.com/photos/bupp/), Licenced [by-nc-nd](https://creativecommons.org/licenses/by-nc-nd/2.0/), [Source](https://www.flickr.com/photos/bupp/424464685/)]
    [![Sleeping at the keyboard]({{ "/assets/cli-sleep.jpg" | prepend: site.baseurl }})]({{ "/assets/cli-sleep.jpg" | prepend: site.baseurl }})
 
-1. The command might have some `login` functionality (think e.g. Microsoft Azure CLI `az` or Travis
-   CI `travis`) and needs to locally store credentials. Do I only have a choice between storing
-   credentials in plain text or to reinvent the wheel? Of course not. Look up for example
-   .authinfo.gpg, how `git` is handling credential storage (auth helpers) or platform-specific
-   mechanisms such as keyrings. Yes, even when you're not building a GUI, it's possible to use OS
-   APIs.
+1. The following is just an example: The command might have some `login` functionality (think e.g.
+   Microsoft Azure CLI `az` or Travis CI `travis`) and needs to locally store credentials. Do I only
+   have a choice between storing credentials in plain text or to reinvent the wheel? Of course not.
+   Look up for example .authinfo.gpg, how `git` is handling credential storage (auth helpers) or
+   platform-specific mechanisms such as keyrings. Yes, even when you're not building a GUI, it's
+   possible to use OS APIs. The more general point is: Please stick to the best practices. Chances
+   are high someome already solved that problem[^1].
 
 ## How to Build it in Java
 
@@ -221,7 +222,7 @@ some more support for different ways to start our command, as we will see in the
 1. To handle interactive text input (i.e. you can input a line of text and use the arrow keys and
    backspace to edit), you'll want to use [jline3](https://github.com/jline/jline3). Getting this
    right in a portable way could otherwise be tricky. In order to make Jline work on all platforms,
-   you'll need support for positioning the cursor, for which it can again use Jansi[^1]. Convenient.
+   you'll need support for positioning the cursor, for which it can again use Jansi[^2]. Convenient.
 1. If you need a complete text-based user interface with input forms, buttons, checkboxes etc., you
    can check out [lanterna](https://github.com/mabe02/lanterna), which is similar to
    [ncurses](https://en.wikipedia.org/wiki/Ncurses), except it's written in Java and requires no
@@ -238,8 +239,8 @@ mechanism that allows a user to install commands directly into their PATH (think
 -Dartifact=com.foo:foo:1.0`, which is ... not really what we want. So what we can do is one of the
 following:
 
-1. Use a wrapper script. Write a shell script that optionally checks you JVM, then runs your jar
-   with the provided arguments[^2].
+1. Use a wrapper script. Write a shell script that optionally checks for an installed JVM, then runs
+   your jar with the provided arguments[^3].
 1. Use a shell alias. This would have to be set in the user's environment and basically does the
    same thing as the wrapper script.
 1. Use a wrapper-compiler such as [launch4j](http://launch4j.sourceforge.net/) that creates a native
@@ -248,12 +249,15 @@ following:
    because the command still needs to spin up a JVM.
 1. Then there's [GraalVM Native Image](https://www.graalvm.org/docs/reference-manual/native-image/),
    which takes your Java application and compiles it into a standalone binary that does not require
-   a JVM any more. The binary includes the code from all necessary classes, dependencies, runtime
-   library classes from JDK and statically linked native code from JDK. Unlike your regular Java
-   application that needs to first spin up a JVM, this standalone binary starts instantly. A CLI
-   tool is the type of application that profits the most from the increased startup speed of a
-   native binary, so this is the approach that makes the most sense for us: This is the way we can
-   avoid the annoying delay at startup. Unfortunately, it's also the trickiest to make work.
+   a JVM any more (which can be an advantage in itself). The binary includes the code from all
+   necessary classes, dependencies, runtime library classes from JDK and statically linked native
+   code from JDK. Unlike your regular Java application that needs to first start up a JVM, this
+   standalone binary starts instantly. A CLI tool is the type of application that profits the most
+   from the increased startup speed of a native binary, so this is the approach that makes the most
+   sense for us: This way we can avoid the annoying delay at startup. Unfortunately, it's also the
+   trickiest to make work. Additionally, keep in mind that you will have to build a separate binary
+   for every platform you're going to support, and [cross-compilation is not
+   supported](https://github.com/oracle/graal/issues/407).
 
 ### Building a Native Image for your CLI tool
 
@@ -267,16 +271,16 @@ that are evaluated at runtime?
    executed with a Java agentlib provided by GraalVM which traces all calls and creates JSON files
    describing the respective features: `reflect-config.json`, `jni-config.json`,
    `resource-config.json` and `proxy-config.json`. These are then read by the native image compiler.
-   There is [dedicated
+   There is a [dedicated
    tutorial](https://github.com/oracle/graal/blob/master/substratevm/CONFIGURE.md) on this.
 1. For handling annotations with runtime retention, you can write your own JSON descriptors that
    control what should be visible at build time and how. Sometimes you get tool support for that,
    for example Picocli [provides an annotation
-   processor](https://picocli.info/#_graalvm_native_image) you can plug in your
-   build setup to have the JSON descriptors automatically generated from your annotated code.
-1. Scanning the class path at runtime, e.g. for annotations, must be changed to be done at build
-   time. If you use [classgraph](https://github.com/classgraph/classgraph) for that, there's a
-   [separate guide](https://github.com/classgraph/classgraph/wiki/Build-Time-Scanning) on that.
+   processor](https://picocli.info/#_graalvm_native_image) you can plug in your build setup to have
+   the JSON descriptors for Picocli's annotations automatically generated from your annotated code.
+1. Scanning the class path at runtime must be changed to be done at build time instead. If you use
+   [classgraph](https://github.com/classgraph/classgraph) for that, there's a [separate
+   guide](https://github.com/classgraph/classgraph/wiki/Build-Time-Scanning) on that.
 1. Certain things, for example CGLIB Proxies, won't work in GraalVM Native image.
 1. If you intend to use Spring Boot (e.g. with `@SpringBootConsoleApplication`) with GraalVM, the
    good news is, [it's possible in
@@ -285,7 +289,8 @@ that are evaluated at runtime?
    time, CGLIB Proxies must be disabled, Autoconfiguration needs some hints to make it work at build
    time. All in all, it's pretty tedious;
    [here](https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/) is an article that walks you
-   through it.
+   through it. Additionally, you will still have to configure the default logging behavior and
+   disable the Spring Boot Banner to not spam your user.
 
 ### Putting it all together: Frameworks
 
@@ -339,15 +344,38 @@ to fiddle around at times. Here's some of the points I've stumpled upon:
    good idea to automatically run the compiled binary with a set of test inputs automatically in
    your build pipeline to make sure that changing the `native-image` setup or the dependencies did
    not break your application.
+1. I've encountered the behavior that building the native image yields a binary that fails at
+   runtime (throws some exception), then building the native image again from the same jar with the
+   same arguments to `native-image` yields a binary that works. By default, `native-image` starts a
+   daemon that caches certain things and that is probably involved in this behavior, although I
+   don't think that's supposed to happen.
+
+### Wrapping it up
+
+It's possible to build a CLI tool in Java that can start instantly and follows the best practices
+for CLI tools. The easiest way to get started is using the Micronaut framework that will use the
+Picocli library to do the argument parsing. Resulting binaries range between 20 and 80 MB (depending
+on the amount and size of your dependencies) which is, depending on your point of view, either very
+large or very small. Compared to "regular" binaries build with, say Rust, C++ or Go, that's pretty
+big. But compared to distributing your application together with the required JRE/JDK, it's actually
+not that large. While it's sometimes a litte tricky to get GraalVM Native Image to do what you want,
+especially in combination with additional dependencies, this is in part remedied by the use of a
+framework. All three of the mentioned frameworks (Micronaut, Quarkus and Spring Boot) improve very
+fast to make the Native Image experience as smooth as possible. We'll see how this space evolves in
+the future.
 
 * * *
 
-[^1]: Because moving the cursor around, at least on Unix, is done using ANSI escape sequences, just
+[^1]: Think of this footnote as a substitute for a multiple pages long rant about how every
+    programming language comes with their own package/dependency-manager where the only essential
+    distinctive feature is that it is written in that particular language.
+
+[^2]: Because moving the cursor around, at least on Unix, is done using ANSI escape sequences, just
     like producing colored output.
 
-[^2]: You might say: You could handle _just_ the `--help` arguments and the like in the wrapper
+[^3]: You might say: You could handle _just_ the `--help` arguments and the like in the wrapper
     script to have _that_ give instant feedback to avoid the JVM startup time, and you might
     technically be right. However, I won't go into detail on how that's a bad idea.
 
-Please go [here](https://github.com/atextor/atextor.github.com/issues/5) to
+Please go [here](https://github.com/atextor/atextor.github.com/issues/6) to
 comment this article.

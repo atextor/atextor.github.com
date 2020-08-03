@@ -218,7 +218,7 @@ some more support for different ways to start our command, as we will see in the
 1. To generate portable colored text output from Java, you'll want to use
    [jansi](https://github.com/fusesource/jansi), which describes itself as follows: "Jansi is a
    small java library that allows you to use ANSI escape sequences to format your console output
-   which works even on windows." In fact, Picocli also uses Janso to create colored output.
+   which works even on windows." In fact, Picocli also uses Jansi to create colored output.
 1. To handle interactive text input (i.e. you can input a line of text and use the arrow keys and
    backspace to edit), you'll want to use [jline3](https://github.com/jline/jline3). Getting this
    right in a portable way could otherwise be tricky. In order to make Jline work on all platforms,

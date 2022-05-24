@@ -44,30 +44,30 @@ see below if you use a different layout.
 
 | First press...                | then press...                 | to get |
 |-------------------------------|-------------------------------|--------|
-| <kbd>AltGr</kdb>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ā      |
-| <kbd>AltGr</kdb>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | á      |
-| <kbd>AltGr</kdb>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǎ      |
-| <kbd>AltGr</kdb>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | à      |
-| <kbd>AltGr</kdb>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ō      |
-| <kbd>AltGr</kdb>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ó      |
-| <kbd>AltGr</kdb>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǒ      |
-| <kbd>AltGr</kdb>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ò      |
-| <kbd>AltGr</kdb>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ē      |
-| <kbd>AltGr</kdb>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | é      |
-| <kbd>AltGr</kdb>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ě      |
-| <kbd>AltGr</kdb>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | è      |
-| <kbd>AltGr</kdb>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ī      |
-| <kbd>AltGr</kdb>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | í      |
-| <kbd>AltGr</kdb>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǐ      |
-| <kbd>AltGr</kdb>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ì      |
-| <kbd>AltGr</kdb>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ū      |
-| <kbd>AltGr</kdb>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ú      |
-| <kbd>AltGr</kdb>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǔ      |
-| <kbd>AltGr</kdb>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ù      |
-| <kbd>AltGr</kdb>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ǖ      |
-| <kbd>AltGr</kdb>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ǘ      |
-| <kbd>AltGr</kdb>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǚ      |
-| <kbd>AltGr</kdb>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ǜ      |
+| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ā      |
+| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | á      |
+| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǎ      |
+| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | à      |
+| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ō      |
+| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ó      |
+| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǒ      |
+| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ò      |
+| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ē      |
+| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | é      |
+| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ě      |
+| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | è      |
+| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ī      |
+| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | í      |
+| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǐ      |
+| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ì      |
+| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ū      |
+| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ú      |
+| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǔ      |
+| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ù      |
+| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ǖ      |
+| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ǘ      |
+| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǚ      |
+| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ǜ      |
 
 ## Adapt to work with other keyboard layouts
 

@@ -92,7 +92,7 @@ see below if you use a different layout.
    in the first tone), press <kbd>AltGr</kbd> + <kbd>a</kbd>, followed by <kbd>AltGr</kbd> +
    <kbd>1</kbd>.
 
-## Adapt to work with outer keyboard layouts
+## Adapt to work with other keyboard layouts
 
 Although the solution was developed for German keyboard users and therefore uses the
 <kbd>AltGr</kbd> key, which is not present on all keyboard layouts (e.g., US layout), you can adapt

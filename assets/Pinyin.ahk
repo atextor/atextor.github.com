@@ -36,7 +36,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #If
 
 <^>!u::return
-#If, A_PriorHotkey = "<^>!e"
+#If, A_PriorHotkey = "<^>!u"
 <^>!1::Send, ū
 <^>!2::Send, ú
 <^>!3::Send, ǔ

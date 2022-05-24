@@ -34,60 +34,10 @@ see below if you use a different layout.
 1. Install [Autohotkey](https://www.autohotkey.com/), a free software for automating Windows using
    hotkeys. You can find installation and set up instructions
    [here](https://www.autohotkey.com/docs/Tutorial.htm#s11).
-1. Follow the [Autohotkey tutorial to create a script
-   file](https://www.autohotkey.com/docs/Tutorial.htm#s12). Use the following as script content:
-
-   ```autohotkey
-   <^>!a::return
-   #If, A_PriorHotkey = "<^>!a"
-   <^>!1::Send, ā
-   <^>!2::Send, á
-   <^>!3::Send, ǎ
-   <^>!4::Send, à
-   #If
-
-   <^>!e::return
-   #If, A_PriorHotkey = "<^>!e"
-   <^>!1::Send, ē
-   <^>!2::Send, é
-   <^>!3::Send, ě
-   <^>!4::Send, è
-   #If
-
-   <^>!i::return
-   #If, A_PriorHotkey = "<^>!i"
-   <^>!1::Send, ī
-   <^>!2::Send, í
-   <^>!3::Send, ǐ
-   <^>!4::Send, ì
-   #If
-
-   <^>!o::return
-   #If, A_PriorHotkey = "<^>!o"
-   <^>!1::Send, ō
-   <^>!2::Send, ó
-   <^>!3::Send, ǒ
-   <^>!4::Send, ò
-   #If
-
-   <^>!u::return
-   #If, A_PriorHotkey = "<^>!e"
-   <^>!1::Send, ū
-   <^>!2::Send, ú
-   <^>!3::Send, ǔ
-   <^>!4::Send, ù
-   #If
-
-   <^>!ü::return
-   #If, A_PriorHotkey = "<^>!ü"
-   <^>!1::Send, ǖ
-   <^>!2::Send, ǘ
-   <^>!3::Send, ǚ
-   <^>!4::Send, ǜ
-   #If
-   ```
-
-1. Save the script and double-click it to start it.
+1. Download the script file [Pinyin.ahk](https://atextor.de/assets/Pinyin.ahk).
+1. From your download folder, move the file Pinyin.ahk to your desktop. This
+   way, you can easily access it after a reboot.
+1. On your desktop, double-click the Pinyin.ahk file.
 1. Now, you can use shortcuts to enter vowels with tone marks as described above: To enter `ā`, (a
    in the first tone), press <kbd>AltGr</kbd> + <kbd>a</kbd>, followed by <kbd>AltGr</kbd> +
    <kbd>1</kbd>.
@@ -96,10 +46,10 @@ see below if you use a different layout.
 
 Although the solution was developed for German keyboard users and therefore uses the
 <kbd>AltGr</kbd> key, which is not present on all keyboard layouts (e.g., US layout), you can adapt
-the solution to use for example <kbd>Alt</kbd>+<kbd>Shift</kbd> instead. Replace `<^>!` with one or
-more other [hotkey modifier symbols](https://www.autohotkey.com/docs/Hotkeys.htm#Symbols) to change
-the hotkey. Also, if you use a keyboard that has no native `ü` key, you'll want to change the two
-lines:
+the solution to use for example <kbd>Alt</kbd>+<kbd>Shift</kbd> instead. In the Pinyin.ahk script
+file, replace `<^>!` with one or more other [hotkey modifier
+symbols](https://www.autohotkey.com/docs/Hotkeys.htm#Symbols) to change the hotkey. Also, if you use
+a keyboard that has no native `ü` key, you'll want to change the two lines:
 
    ```autohotkey
    <^>!ü::return

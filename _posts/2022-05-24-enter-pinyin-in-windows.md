@@ -42,7 +42,7 @@ see below if you use a different layout.
    in the first tone), press <kbd>AltGr</kbd> + <kbd>a</kbd>, followed by <kbd>AltGr</kbd> +
    <kbd>1</kbd>.
 
-<table class="colortable">
+<table class="colorTable">
     <colgroup>
         <col width="20%" />
         <col width="20%" />

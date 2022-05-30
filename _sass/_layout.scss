@@ -49,6 +49,61 @@ hr {
 	user-select: none;           /* Non-prefixed version, currently not supported by any browser */
 }
 
+table.colorTable {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table.colorTable td, table.colorTable th {
+    border: 1px solid #000;
+    padding: 0.5em 0.5em;
+}
+
+table.colorTable tbody td {
+    font-size: 13px;
+}
+
+table.colorTable thead th.spacer, table.colorTable tbody tr td.spacer {
+    min-width: 1em;
+    border: none;
+}
+
+table.colorTable thead tr.header th {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #ffffd7;
+    color: #000000;
+}
+
+table.colorTable thead tr.header th.spacer {
+    background-color: transparent;
+}
+
+table.colorTable td.color1 {
+    background-color: #ffe994;
+}
+
+table.colorTable td.color2 {
+    background-color: #ffd8ce;
+}
+
+table.colorTable td.color3 {
+    background-color: #dedce6;
+}
+
+table.colorTable td.color4 {
+    background-color: #dee6ef;
+}
+
+table.colorTable td.color5 {
+    background-color: #f6f9d4;
+}
+
+table.colorTable td.color6 {
+    background-color: #ffffa6;
+}
+
 /**
  * Site header
  */

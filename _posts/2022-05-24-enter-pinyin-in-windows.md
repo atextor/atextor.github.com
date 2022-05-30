@@ -42,32 +42,138 @@ see below if you use a different layout.
    in the first tone), press <kbd>AltGr</kbd> + <kbd>a</kbd>, followed by <kbd>AltGr</kbd> +
    <kbd>1</kbd>.
 
-| First press...                | then press...                 | to get |
-|-------------------------------|-------------------------------|--------|
-| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ā      |
-| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | á      |
-| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǎ      |
-| <kbd>AltGr</kbd>+<kbd>a</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | à      |
-| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ō      |
-| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ó      |
-| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǒ      |
-| <kbd>AltGr</kbd>+<kbd>o</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ò      |
-| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ē      |
-| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | é      |
-| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ě      |
-| <kbd>AltGr</kbd>+<kbd>e</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | è      |
-| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ī      |
-| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | í      |
-| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǐ      |
-| <kbd>AltGr</kbd>+<kbd>i</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ì      |
-| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ū      |
-| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ú      |
-| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǔ      |
-| <kbd>AltGr</kbd>+<kbd>u</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ù      |
-| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>1</kbd> | ǖ      |
-| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>2</kbd> | ǘ      |
-| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>3</kbd> | ǚ      |
-| <kbd>AltGr</kbd>+<kbd>ü</kbd> | <kbd>AltGr</kbd>+<kbd>4</kbd> | ǜ      |
+<table class="colortable">
+    <colgroup>
+        <col width="20%" />
+        <col width="20%" />
+        <col width="10%" />
+        <col width="5em" />
+        <col width="20%" />
+        <col width="20%" />
+        <col width="10%" />
+    </colgroup>
+    <thead>
+        <tr class="header">
+            <th>First press...</th>
+            <th>then press...</th>
+            <th>to get</th>
+            <th class="spacer"></th>
+            <th>First press...</th>
+            <th>then press...</th>
+            <th>to get</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>a</kbd></td>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color1">ā</td>
+            <td class="spacer"></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>i</kbd></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color4">ī</td>
+        </tr>
+        <tr>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>a</kbd></td>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color1">á</td>
+            <td class="spacer"></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>i</kbd></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color4">í</td>
+        </tr>
+        <tr>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>a</kbd></td>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color1">ǎ</td>
+            <td class="spacer"></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>i</kbd></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color4">ǐ</td>
+        </tr>
+        <tr>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>a</kbd></td>
+            <td class="color1"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color1">à</td>
+            <td class="spacer"></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>i</kbd></td>
+            <td class="color4"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color4">ì</td>
+        </tr>
+        <tr>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>o</kbd></td>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color2">ō</td>
+            <td class="spacer"></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>u</kbd></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color5">ū</td>
+        </tr>
+        <tr>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>o</kbd></td>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color2">ó</td>
+            <td class="spacer"></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>u</kbd></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color5">ú</td>
+        </tr>
+        <tr>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>o</kbd></td>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color2">ǒ</td>
+            <td class="spacer"></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>u</kbd></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color5">ǔ</td>
+        </tr>
+        <tr>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>o</kbd></td>
+            <td class="color2"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color2">ò</td>
+            <td class="spacer"></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>u</kbd></td>
+            <td class="color5"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color5">ù</td>
+        </tr>
+        <tr>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>e</kbd></td>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color3">ē</td>
+            <td class="spacer"></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>ü</kbd></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>1</kbd></td>
+            <td class="color6">ǖ</td>
+        </tr>
+        <tr>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>e</kbd></td>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color3">é</td>
+            <td class="spacer"></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>ü</kbd></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>2</kbd></td>
+            <td class="color6">ǘ</td>
+        </tr>
+        <tr>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>e</kbd></td>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color3">ě</td>
+            <td class="spacer"></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>ü</kbd></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>3</kbd></td>
+            <td class="color6">ǚ</td>
+        </tr>
+        <tr>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>e</kbd></td>
+            <td class="color3"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color3">è</td>
+            <td class="spacer"></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>ü</kbd></td>
+            <td class="color6"><kbd>AltGr</kbd>+<kbd>4</kbd></td>
+            <td class="color6">ǜ</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Adapt to work with other keyboard layouts
 

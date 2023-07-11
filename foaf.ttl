@@ -1,11 +1,10 @@
-@prefix :     <http://atextor.de#> .
+@prefix :     <http://atextor.de/foaf.ttl#> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dc:   <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix wot:  <http://xmlns.com/wot/0.1/> .
 @prefix geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dbp:  <http://dbpedia.org/resource/> .
 
 # This document
 <>
@@ -46,12 +45,6 @@
         foaf:accountName "atextor" ;
         foaf:accountProfilePage <https://www.github.com/atextor> ;
         foaf:accountServiceHomepage <https://www.github.com>
-    ], [
-        a foaf:OnlineAccount ;
-        dc:title "Keybase" ;
-        foaf:accountName "atextor" ;
-        foaf:accountProfilePage <https://www.keybase.io/atextor> ;
-        foaf:accountServiceHomepage <https://www.keybase.io>
      ], [
          a foaf:OnlineAccount ;
          dc:title "Mastodon" ;
@@ -70,10 +63,10 @@
 
     # Misc. info
     foaf:interest <http://dbpedia.org/resource/Command-line_interface>,
-                  <http://dbpedia.org/resource/Information_technology_management>,
                   <http://dbpedia.org/resource/Linux>,
-                  <http://dbpedia.org/resource/Ontology_engineering>,
-                  <http://dbpedia.org/resource/Scala_(programming_language)> ;
+                  <http://dbpedia.org/resource/Ontology_engineering> ;
+
+    foaf:currentProject <https://github.com/eclipse-esmf> ;
 
     # GPG
     wot:hasKey [
@@ -86,8 +79,6 @@
 
 # Describe interest entities
 <http://dbpedia.org/resource/Command-line_interface> dc:title "Command Line Interfaces" .
-<http://dbpedia.org/resource/Information_technology_management> dc:title "IT Management" .
 <http://dbpedia.org/resource/Linux> dc:title "Linux" .
 <http://dbpedia.org/resource/Ontology_engineering> dc:title "Ontology Engineering" .
-<http://dbpedia.org/resource/Scala_(programming_language)> dc:title "Scala" .
 
